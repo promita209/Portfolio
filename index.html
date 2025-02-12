@@ -94,10 +94,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap; /* Added for responsiveness */
         }
 
         .hero-text {
             flex: 1;
+            min-width: 300px; /* Ensure text doesn't shrink too much */
         }
 
         .hero-text h1 {
@@ -155,57 +157,13 @@
             color: var(--light-color);
         }
 
-        .skills {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, #f3f4f6, #ffffff);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skills-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .skill-card {
-            background: var(--light-color);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(79, 70, 229, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-strong);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .skill-title {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .projects {
+        .skills, .projects, .education, .contact {
             padding: 5rem 5%;
             background: var(--light-color);
             position: relative;
         }
 
-        .projects-grid {
+        .skills-grid, .projects-grid, .education-grid {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
@@ -214,66 +172,7 @@
             padding: 2rem 0;
         }
 
-        .project-card {
-            background: var(--light-color);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(79, 70, 229, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-strong);
-        }
-
-        .project-content {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .project-tag {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: var(--light-color);
-            border-radius: 20px;
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-        }
-
-        .education {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, #ffffff, #f3f4f6);
-            position: relative;
-        }
-
-        .education-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .education-card {
+        .skill-card, .project-card, .education-card {
             background: var(--light-color);
             padding: 2rem;
             border-radius: 20px;
@@ -282,46 +181,13 @@
             border: 1px solid rgba(79, 70, 229, 0.1);
         }
 
-        .education-card:hover {
+        .skill-card:hover, .project-card:hover, .education-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-strong);
-        }
-
-        .education-year {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-degree {
-            font-size: 1.25rem;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .education-school {
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
         }
 
         .contact {
-            padding: 5rem 5%;
-            background: var(--light-color);
             text-align: center;
-        }
-
-        .contact-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
         }
 
         .social-link {
@@ -360,7 +226,18 @@
             }
 
             .nav-links {
-                display: none;
+                flex-direction: column; /* Stack links vertically */
+                gap: 1rem;
+            }
+
+            .navbar {
+                flex-direction: column; /* Stack logo and links */
+                align-items: flex-start;
+                padding: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column; /* Stack buttons vertically */
             }
         }
     </style>
@@ -379,24 +256,24 @@
         </nav>
     </header>
 
-<section id="home" class="hero">
-    <div class="hero-content" style="display: flex; align-items: center; height: 100vh; padding: 0 5%;">
-        <div class="profile-container" style="position: relative; margin-right: 4rem;">
-            <img src="dp.jpeg" alt="Profile Picture" class="profile-picture"
-                 style="border-radius: 50%; width: 300px; height: 300px; box-shadow: 0 0 15px rgba(79, 70, 229, 0.7);">
-            <div style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; border: 5px solid var(--primary-color); box-shadow: 0 0 30px rgba(79, 70, 229, 0.5); z-index: -1;"></div>
-        </div>
-        <div style="max-width: 600px;">
-            <h1 style="font-size: 3.5rem; margin-bottom: 0.5rem;">Creative Software Developer</h1>
-            <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 1.5rem;">Specializing in Flutter and Dart</h2>
-            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">I am a motivated software developer with expertise in crafting user-friendly applications and solving complex problems.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="cta-button primary-button" style="padding: 0.8rem 1.5rem; font-size: 1rem;">View Projects</a>
-                <a href="#contact" class="cta-button secondary-button" style="padding: 0.8rem 1.5rem; font-size: 1rem;">Get in Touch</a>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-container" style="position: relative; margin-right: 4rem;">
+                <img src="dp.jpeg" alt="Profile Picture" class="profile-picture"
+                     style="border-radius: 50%; width: 300px; height: 300px; box-shadow: 0 0 15px rgba(79, 70, 229, 0.7);">
+                <div style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; border: 5px solid var(--primary-color); box-shadow: 0 0 30px rgba(79, 70, 229, 0.5); z-index: -1;"></div>
+            </div>
+            <div style="max-width: 600px;">
+                <h1 style="font-size: 3.5rem; margin-bottom: 0.5rem;">Creative Software Developer</h1>
+                <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 1.5rem;">Specializing in Flutter and Dart</h2>
+                <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">I am a motivated software developer with expertise in crafting user-friendly applications and solving complex problems.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="cta-button primary-button" style="padding: 0.8rem 1.5rem; font-size: 1rem;">View Projects</a>
+                    <a href="#contact" class="cta-button secondary-button" style="padding: 0.8rem 1.5rem; font-size: 1rem;">Get in Touch</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="skills" class="skills">
         <h2 class="section-title">Skills</h2>
@@ -430,11 +307,11 @@
                 <p>Proficient in Python development for various applications and data analysis.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon"><img src="sql.png" alt="sql Logo" style="width: 50px; height: auto;"></div>
+                <div class="skill-icon"><img src="sql.png" alt="SQL Logo" style="width: 50px; height: auto;"></div>
                 <h3 class="skill-title">SQL</h3>
                 <p>Knowledgeable in SQL for database management and data manipulation.</p>
             </div>
-                   </div>
+        </div>
     </section>
 
     <section id="projects" class="projects">
