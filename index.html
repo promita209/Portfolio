@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promita Ghorui - Creative Software Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #4338ca;
+            --accent-color: #818cf8;
+            --text-color: #1f2937;
+            --light-color: #ffffff;
+            --background-color: #f3f4f6;
+            --gradient: linear-gradient(135deg, #4f46e5, #818cf8);
+            --shadow: 0 5px 15px rgba(79, 70, 229, 0.1);
+            --shadow-strong: 0 10px 30px rgba(79, 70, 229, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(79, 70, 229, 0.1);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--light-color);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .primary-button {
+            background: var(--gradient);
+            color: var(--light-color);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .secondary-button {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .secondary-button:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .skills {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #f3f4f6, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .skill-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .projects {
+            padding: 5rem 5%;
+            background: var(--light-color);
+            position: relative;
+        }
+
+        .projects-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            background: var(--light-color);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .project-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--light-color);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .education {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #ffffff, #f3f4f6);
+            position: relative;
+        }
+
+        .education-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .education-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .education-year {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-degree {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .education-school {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact {
+            padding: 5rem 5%;
+            background: var(--light-color);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--light-color);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Promita Ghorui</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section id="home" class="hero">
+    <div class="hero-content" style="display: flex; align-items: center; height: 100vh; padding: 0 5%;">
+        <div class="profile-container" style="position: relative; margin-right: 4rem;">
+            <img src="dp.jpeg" alt="Profile Picture" class="profile-picture"
+                 style="border-radius: 50%; width: 300px; height: 300px; box-shadow: 0 0 15px rgba(79, 70, 229, 0.7);">
+            <div style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; border: 5px solid var(--primary-color); box-shadow: 0 0 30px rgba(79, 70, 229, 0.5); z-index: -1;"></div>
+        </div>
+        <div style="max-width: 600px;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 0.5rem;">Creative Software Developer</h1>
+            <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 1.5rem;">Specializing in Flutter and Dart</h2>
+            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">I am a motivated software developer with expertise in crafting user-friendly applications and solving complex problems.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-button primary-button" style="padding: 0.8rem 1.5rem; font-size: 1rem;">View Projects</a>
+                <a href="#contact" class="cta-button secondary-button" style="padding: 0.8rem 1.5rem; font-size: 1rem;">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="skills" class="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <img src="flutter.png" alt="Flutter Logo" style="width: 50px; height: auto;">
+                    <img src="dart.png" alt="Dart Logo" style="width: 30px; height: auto; margin-left: 5px;">
+                </div>
+                <h3 class="skill-title">Flutter & Dart</h3>
+                <p>Expert in building cross-platform applications with beautiful UI/UX design.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><img src="firebase.png" alt="Firebase Logo" style="width: 50px; height: auto;"></div>
+                <h3 class="skill-title">Firebase</h3>
+                <p>Proficient in using Firebase for backend services and real-time database.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><img src="java.png" alt="Java Logo" style="width: 50px; height: auto;"></div>
+                <h3 class="skill-title">Java</h3>
+                <p>Strong foundation in Java programming with expertise in full-stack development.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><img src="git.png" alt="Git Logo" style="width: 50px; height: auto;"></div>
+                <h3 class="skill-title">Git</h3>
+                <p>Experience in version control using Git for collaboration and code management.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><img src="python.png" alt="Python" style="width: 50px; height: auto;"></div>
+                <h3 class="skill-title">Python</h3>
+                <p>Proficient in Python development for various applications and data analysis.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><img src="sql.png" alt="sql Logo" style="width: 50px; height: auto;"></div>
+                <h3 class="skill-title">SQL</h3>
+                <p>Knowledgeable in SQL for database management and data manipulation.</p>
+            </div>
+                   </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <img src="cosmopedia.jpeg" alt="CosmosPedia" style="width: 100%; border-radius: 20px;">
+                    <h3 class="project-title">CosmosPedia</h3>
+                    <p class="project-description">A Personalized Astronomical Companion that provides users with an interactive space exploration experience.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <img src="webuzz.jpg" alt="WeBuzz" style="width: 100%; border-radius: 20px;">
+                    <h3 class="project-title">WeBuzz</h3>
+                    <p class="project-description">Social Media Application with real-time messaging and post-sharing features, built during apprenticeship.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <img src="connect.jpg" alt="Connect+ Student" style="width: 100%; border-radius: 20px;">
+                    <h3 class="project-title">Connect+ Student</h3>
+                    <p class="project-description">An Alumni Networking Application to connect alumni with current students.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Networking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3 class="education-year">2023 - 2025</h3>
+                <h4 class="education-degree">Master of Computer Applications (MCA)</h4>
+                <p class="education-school">Galgotias University</p>
+                <p>Focus on Software Development and Data Science.</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-year">2020 - 2023</h3>
+                <h4 class="education-degree">Bachelor of Computer Applications (BCA)</h4>
+                <p class="education-school">National Post Graduate College</p>
+                <p>Completed with a specialization in Software Engineering.</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-year">2019 - 2020</h3>
+                <h4 class="education-degree">Intermediate</h4>
+                <p class="education-school">S.K.D. Academy</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-year">2017 - 2018</h3>
+                <h4 class="education-degree">High School</h4>
+                <p class="education-school">S.K.D. Academy</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="contact-title">Contact Me</h2>
+        <p>I'd love to hear from you! Feel free to reach out.</p>
+        <div class="contact-icons">
+            <a href="mailto:promitaghorui0@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/promita209" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/promita-ghorui-7a229321b/" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/promita.20" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem 0; background: var(--light-color);">
+        <p>&copy; 2025 Promita Ghorui. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Add any JavaScript functionality here if needed
+    </script>
+</body>
+</html>
